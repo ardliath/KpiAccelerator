@@ -27,16 +27,6 @@ namespace KpiAccelerator
 
         private void workToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            //var date = DateTime.ParseExact(
-            //    "Mon Jan 13 2014 00:00:00 GMT+0000 (GMT Standard Time)",
-            //    "ddd MMM dd yyyy HH:mm:ss 'GMT'K '(GMT Standard Time)'",
-            //    CultureInfo.InvariantCulture);
-
-            DateTime.ParseExact("Thu Jun 14 2018 10:32:15 GMT+0100 (British Summer Time)",
-                "ddd MMM dd yyyy HH:mm:ss 'GMT'K '(British Summer Time)'",
-                CultureInfo.InvariantCulture);
-
             using (var open = new OpenFileDialog())
             {
                 if (open.ShowDialog() == DialogResult.OK)
