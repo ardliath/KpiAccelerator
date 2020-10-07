@@ -15,9 +15,14 @@ namespace KpiAccelerator
 {
     public partial class MainForm : Form
     {
+        public KpiData KpiData { get; set; }
+
+
         public MainForm()
         {
             InitializeComponent();
+
+            this.KpiData = new KpiData();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,29 +36,51 @@ namespace KpiAccelerator
             {
                 if (open.ShowDialog() == DialogResult.OK)
                 {
+                    this.KpiData.WorkItems = new List<WorkItem>();
                     using (var reader = new StreamReader(open.FileName))
                     {
                         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                         {
-                            var records = csv.GetRecords<WorkItemRow>();
+                            var records = csv.GetRecords<WorkItemRow>().ToArray();
 
-                            long averageTicks = (long)records.Where(w => !string.IsNullOrWhiteSpace(w.ClosedDate))
-                                .Select(w => new
+                            var newData = records.Select(w => new WorkItem
                                 {
+                                    ID = w.ID,
+                                    State = w.State,
+                                    Title = w.Title,
+                                    LeadTime = null,
                                     CreatedDate = DateTime.ParseExact(StripBrackets(w.CreatedDate), "ddd MMM dd yyyy HH:mm:ss 'GMT'K", CultureInfo.InvariantCulture),
-                                    ClosedDate = DateTime.ParseExact(StripBrackets(w.ClosedDate), "ddd MMM dd yyyy HH:mm:ss 'GMT'K", CultureInfo.InvariantCulture)
-                                })
-                                .Select(w => w.ClosedDate - w.CreatedDate)
-                                .Select(ts => ts.Ticks)
-                                .Average();
-
-                            var averageLeadTime = new TimeSpan(averageTicks);
+                                    ClosedDate = string.IsNullOrWhiteSpace(w.ClosedDate)
+                                        ? (DateTime?)null
+                                        : DateTime.ParseExact(StripBrackets(w.ClosedDate), "ddd MMM dd yyyy HH:mm:ss 'GMT'K", CultureInfo.InvariantCulture)
+                                });
 
 
+                            this.KpiData.WorkItems.AddRange(newData.Select(w => new WorkItem
+                            {
+                                ID = w.ID,
+                                ClosedDate = w.ClosedDate,
+                                CreatedDate = w.CreatedDate,
+                                Title = w.Title,
+                                State = w.State,
+                                LeadTime = w.ClosedDate.HasValue
+                                    ? w.ClosedDate.Value - w.CreatedDate
+                                    : (TimeSpan?)null
+                            }));
+                            
+
+                            this.KpiData.WorkItems.AddRange(newData);
+
+                            this.RefreshKPIs();
                         }
                     }
                 }
             }
+        }
+
+        private void RefreshKPIs()
+        {
+            this.LabelValueKpiLeadTime.Text = $"{Math.Round(this.KpiData.AverageLeadTime.TotalDays, 0)} days";
         }
 
         public string StripBrackets(string value)
