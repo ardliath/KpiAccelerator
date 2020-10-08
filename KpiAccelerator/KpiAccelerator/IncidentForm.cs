@@ -69,6 +69,7 @@ namespace KpiAccelerator
         {
             this._mainForm.KpiData.Incidents = new List<Incident>();
             Deployment deployment;
+            Incident incident;
             foreach (DataRow row in _data.Rows)
             {
                 
@@ -81,14 +82,21 @@ namespace KpiAccelerator
                     deployment = null;
                 }
 
-                this._mainForm.KpiData.Incidents.Add(new Incident
+                incident = new Incident
                 {
                     ID = (Guid)row["ID"],
                     StartDate = (DateTime)row["StartDate"],
                     EndDate = (DateTime)row["EndDate"],
                     Name = (string)row["Name"],
                     Deployment = deployment
-                });
+                };
+                this._mainForm.KpiData.Incidents.Add(incident);
+
+                if(deployment != null)
+                {
+                    if (deployment.Incidents == null) deployment.Incidents = new List<Incident>();
+                    deployment.Incidents.Add(incident);
+                }
             }
 
             this.DialogResult = DialogResult.OK;
