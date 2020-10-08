@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace KpiAccelerator
 {
@@ -20,6 +21,15 @@ namespace KpiAccelerator
         public override string ToString()
         {
             return $"{this.Name} - ({this.DeploymentDate.ToShortDateString()})";
+        }
+
+        public bool WasSucces
+        {
+            get
+            {
+                if (this.Incidents == null) return true;
+                return !this.Incidents.Any();
+            }
         }
     }
 }
