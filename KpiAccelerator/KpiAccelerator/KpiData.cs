@@ -50,5 +50,17 @@ namespace KpiAccelerator
                 return 0;
             }
         }
+
+
+        public int SuccessfulChangePercentage
+        {
+            get
+            {
+                var allChanges = this.Deployments.Where(d => d.DeploymentDate >= DateTime.Now.AddMonths(-3));
+                var successfulChanges = allChanges.Where(c => c.WasSucces);
+
+                return (int)(100 * (double)(successfulChanges.Count() / (double)allChanges.Count()));
+            }
+        }
     }
 }

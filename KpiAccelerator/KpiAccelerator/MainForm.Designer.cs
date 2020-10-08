@@ -37,6 +37,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LabelValueKpiLeadTime = new System.Windows.Forms.Label();
             this.LabelValueKpiDeployments = new System.Windows.Forms.Label();
+            this.LabelValueKpiSuccessful = new System.Windows.Forms.Label();
+            this.LabelValueKpiRecovery = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,11 +119,33 @@
             this.LabelValueKpiDeployments.TabIndex = 2;
             this.LabelValueKpiDeployments.Text = "NumberOfDeploymentsValue";
             // 
+            // LabelValueKpiSuccessful
+            // 
+            this.LabelValueKpiSuccessful.AutoSize = true;
+            this.LabelValueKpiSuccessful.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiSuccessful.Location = new System.Drawing.Point(40, 241);
+            this.LabelValueKpiSuccessful.Name = "LabelValueKpiSuccessful";
+            this.LabelValueKpiSuccessful.Size = new System.Drawing.Size(192, 20);
+            this.LabelValueKpiSuccessful.TabIndex = 3;
+            this.LabelValueKpiSuccessful.Text = "SuccessfulChangesValue";
+            // 
+            // LabelValueKpiRecovery
+            // 
+            this.LabelValueKpiRecovery.AutoSize = true;
+            this.LabelValueKpiRecovery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiRecovery.Location = new System.Drawing.Point(537, 241);
+            this.LabelValueKpiRecovery.Name = "LabelValueKpiRecovery";
+            this.LabelValueKpiRecovery.Size = new System.Drawing.Size(175, 20);
+            this.LabelValueKpiRecovery.TabIndex = 4;
+            this.LabelValueKpiRecovery.Text = "AverageRecoveryValue";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 512);
+            this.Controls.Add(this.LabelValueKpiRecovery);
+            this.Controls.Add(this.LabelValueKpiSuccessful);
             this.Controls.Add(this.LabelValueKpiDeployments);
             this.Controls.Add(this.LabelValueKpiLeadTime);
             this.Controls.Add(this.menuStrip1);
@@ -144,6 +168,8 @@
         private System.Windows.Forms.ToolStripMenuItem deploymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incidentsToolStripMenuItem;
         private System.Windows.Forms.Label LabelValueKpiDeployments;
+        private System.Windows.Forms.Label LabelValueKpiSuccessful;
+        private System.Windows.Forms.Label LabelValueKpiRecovery;
     }
 }
 
