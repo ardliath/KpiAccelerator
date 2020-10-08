@@ -14,11 +14,19 @@ namespace KpiAccelerator
     {
         private MainForm _mainForm;
 
+        private DataTable _data;
+
         public DeploymentForm(MainForm mainForm)
         {
             InitializeComponent();
 
             _mainForm = mainForm;
+
+            _data = new DataTable();
+            _data.Columns.Add("ID", typeof(Guid));
+            _data.Columns.Add("Date", typeof(DateTime));
+            _data.Columns.Add("Name", typeof(string));
+            this.dataGridView1.DataSource = _data;            
         }
 
         private void SaveAndCloseButton_Click(object sender, EventArgs e)
@@ -28,6 +36,13 @@ namespace KpiAccelerator
         }
 
         private void AddButton_Click(object sender, EventArgs e)
+        {
+            this._data.Rows.Add(Guid.NewGuid(),
+                this.dateTimePicker1.Value,
+                this.textBox1.Text);
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
 
         }
