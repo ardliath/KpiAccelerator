@@ -62,5 +62,20 @@ namespace KpiAccelerator
                 return (int)(100 * (double)(successfulChanges.Count() / (double)allChanges.Count()));
             }
         }
+
+        public TimeSpan AverageRecoveryTime
+        {
+            get
+            {
+                var averageTicks = (long)this.Incidents
+                        .Where(w => w.RecoveryTime.HasValue)
+                        .OrderByDescending(w => w.EndDate)
+                        .Take(10) // take the ten most recent WorkItems
+                        .Select(w => w.RecoveryTime.Value.Ticks)
+                        .Average();
+
+                return new TimeSpan(averageTicks);
+            }
+        }
     }
 }

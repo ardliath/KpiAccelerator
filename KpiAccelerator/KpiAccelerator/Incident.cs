@@ -12,5 +12,12 @@ namespace KpiAccelerator
         public string Name { get; set; }
 
         public Deployment Deployment { get; set; }
+        public TimeSpan? RecoveryTime
+        {
+            get
+            {
+                return this.EndDate.Subtract(this.StartDate);
+            }
+        }
     }
 }
