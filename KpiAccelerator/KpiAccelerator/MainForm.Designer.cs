@@ -30,12 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LabelValueKpiLeadTime = new System.Windows.Forms.Label();
             this.updateKPIDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deploymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LabelValueKpiLeadTime = new System.Windows.Forms.Label();
             this.LabelValueKpiDeployments = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,23 +58,6 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // LabelValueKpiLeadTime
-            // 
-            this.LabelValueKpiLeadTime.AutoSize = true;
-            this.LabelValueKpiLeadTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelValueKpiLeadTime.Location = new System.Drawing.Point(40, 68);
-            this.LabelValueKpiLeadTime.Name = "LabelValueKpiLeadTime";
-            this.LabelValueKpiLeadTime.Size = new System.Drawing.Size(120, 20);
-            this.LabelValueKpiLeadTime.TabIndex = 0;
-            this.LabelValueKpiLeadTime.Text = "LeadTimeValue";
             // 
             // updateKPIDataToolStripMenuItem
             // 
@@ -105,6 +88,24 @@
             this.incidentsToolStripMenuItem.Name = "incidentsToolStripMenuItem";
             this.incidentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.incidentsToolStripMenuItem.Text = "Incidents";
+            this.incidentsToolStripMenuItem.Click += new System.EventHandler(this.incidentsToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // LabelValueKpiLeadTime
+            // 
+            this.LabelValueKpiLeadTime.AutoSize = true;
+            this.LabelValueKpiLeadTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiLeadTime.Location = new System.Drawing.Point(40, 68);
+            this.LabelValueKpiLeadTime.Name = "LabelValueKpiLeadTime";
+            this.LabelValueKpiLeadTime.Size = new System.Drawing.Size(120, 20);
+            this.LabelValueKpiLeadTime.TabIndex = 0;
+            this.LabelValueKpiLeadTime.Text = "LeadTimeValue";
             // 
             // LabelValueKpiDeployments
             // 

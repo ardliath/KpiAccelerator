@@ -107,5 +107,16 @@ namespace KpiAccelerator
                 }
             }
         }
+
+        private void incidentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var deployments = new IncidentForm(this))
+            {
+                if (deployments.ShowDialog() == DialogResult.OK)
+                {
+                    this.RefreshKPIs();
+                }
+            }
+        }
     }
 }
