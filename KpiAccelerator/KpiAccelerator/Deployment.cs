@@ -8,5 +8,10 @@ namespace KpiAccelerator
         public DateTime DeploymentDate { get; set; }
 
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return $"{this.Name} - ({this.DeploymentDate.ToShortDateString()})";
+        }
     }
 }
