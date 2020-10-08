@@ -10,10 +10,13 @@ namespace KpiAccelerator
 
         public List<Deployment> Deployments { get; set; }
 
+        public List<Incident> Incidents { get; set; }
+
         public KpiData()
         {
             this.WorkItems = new List<WorkItem>();
             this.Deployments = new List<Deployment>();
+            this.Incidents = new List<Incident>();
         }
 
 
