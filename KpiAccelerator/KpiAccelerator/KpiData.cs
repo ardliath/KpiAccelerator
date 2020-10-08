@@ -18,13 +18,17 @@ namespace KpiAccelerator
         {
             get
             {
-                var averageTicks = (long)this.WorkItems
-                    .Where(w => w.LeadTime.HasValue)
-                    .OrderByDescending(w => w.ClosedDate)
-                    .Take(10) // take the ten most recent WorkItems
-                    .Select(w => w.LeadTime.Value.Ticks)
-                    .Average();
-                return new TimeSpan(averageTicks);
+                if (this.WorkItems != null && this.WorkItems.Any())
+                {
+                    var averageTicks = (long)this.WorkItems
+                        .Where(w => w.LeadTime.HasValue)
+                        .OrderByDescending(w => w.ClosedDate)
+                        .Take(10) // take the ten most recent WorkItems
+                        .Select(w => w.LeadTime.Value.Ticks)
+                        .Average();
+                    return new TimeSpan(averageTicks);
+                }
+                return new TimeSpan();
             }
         }
     }
