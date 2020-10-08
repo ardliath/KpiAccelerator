@@ -97,6 +97,7 @@
             this.deploymentsToolStripMenuItem.Name = "deploymentsToolStripMenuItem";
             this.deploymentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deploymentsToolStripMenuItem.Text = "Deployments";
+            this.deploymentsToolStripMenuItem.Click += new System.EventHandler(this.deploymentsToolStripMenuItem_Click);
             // 
             // incidentsToolStripMenuItem
             // 

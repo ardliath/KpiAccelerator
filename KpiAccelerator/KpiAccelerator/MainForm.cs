@@ -95,5 +95,16 @@ namespace KpiAccelerator
                 return value;
             }
         }
+
+        private void deploymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var deployments = new DeploymentForm(this))
+            {
+                if(deployments.ShowDialog() == DialogResult.OK)
+                {
+                    this.RefreshKPIs();
+                }
+            }
+        }
     }
 }
