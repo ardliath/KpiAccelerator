@@ -26,7 +26,25 @@ namespace KpiAccelerator
             _data.Columns.Add("ID", typeof(Guid));
             _data.Columns.Add("Date", typeof(DateTime));
             _data.Columns.Add("Name", typeof(string));
-            this.dataGridView1.DataSource = _data;            
+            this.dataGridView1.DataSource = _data;
+
+
+            foreach (var deployment in _mainForm.KpiData.Deployments)
+            {
+                this._data.Rows.Add(deployment.ID,
+                    deployment.DeploymentDate,
+                    deployment.Name);
+            }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm";
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker1.MaxDate = DateTime.Now.Date.AddDays(1);
         }
 
         private void SaveAndCloseButton_Click(object sender, EventArgs e)
