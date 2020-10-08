@@ -31,6 +31,17 @@ namespace KpiAccelerator
 
         private void SaveAndCloseButton_Click(object sender, EventArgs e)
         {
+            this._mainForm.KpiData.Deployments = new List<Deployment>();
+            foreach(DataRow row in _data.Rows)
+            {
+                this._mainForm.KpiData.Deployments.Add(new Deployment
+                {
+                    ID = (Guid)row["ID"],
+                    DeploymentDate = (DateTime)row["Date"],
+                    Name = (string)row["Name"],
+                });
+            }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

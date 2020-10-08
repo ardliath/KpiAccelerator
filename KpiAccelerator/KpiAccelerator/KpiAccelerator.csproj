@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deployment.cs" />
     <Compile Include="DeploymentForm.cs">
       <SubType>Form</SubType>
     </Compile>

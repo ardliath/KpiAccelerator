@@ -36,6 +36,7 @@
             this.workToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deploymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LabelValueKpiDeployments = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -105,11 +106,22 @@
             this.incidentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.incidentsToolStripMenuItem.Text = "Incidents";
             // 
+            // LabelValueKpiDeployments
+            // 
+            this.LabelValueKpiDeployments.AutoSize = true;
+            this.LabelValueKpiDeployments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiDeployments.Location = new System.Drawing.Point(537, 68);
+            this.LabelValueKpiDeployments.Name = "LabelValueKpiDeployments";
+            this.LabelValueKpiDeployments.Size = new System.Drawing.Size(216, 20);
+            this.LabelValueKpiDeployments.TabIndex = 2;
+            this.LabelValueKpiDeployments.Text = "NumberOfDeploymentsValue";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 512);
+            this.Controls.Add(this.LabelValueKpiDeployments);
             this.Controls.Add(this.LabelValueKpiLeadTime);
             this.Controls.Add(this.menuStrip1);
             this.Name = "MainForm";
@@ -130,6 +142,7 @@
         private System.Windows.Forms.ToolStripMenuItem workToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deploymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incidentsToolStripMenuItem;
+        private System.Windows.Forms.Label LabelValueKpiDeployments;
     }
 }
 

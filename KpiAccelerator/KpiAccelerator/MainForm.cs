@@ -81,6 +81,7 @@ namespace KpiAccelerator
         private void RefreshKPIs()
         {
             this.LabelValueKpiLeadTime.Text = $"{Math.Round(this.KpiData.AverageLeadTime.TotalDays, 0)} days";
+            this.LabelValueKpiDeployments.Text = $"{this.KpiData.NumberOfDeployments} in the last 3 months";
         }
 
         public string StripBrackets(string value)
