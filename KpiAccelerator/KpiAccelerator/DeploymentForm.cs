@@ -1,9 +1,13 @@
-﻿using KpiAccelerator.Data;
+﻿using CsvHelper;
+using KpiAccelerator.Data;
+using KpiAccelerator.Import;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,6 +81,58 @@ namespace KpiAccelerator
         private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
 
+        }
+
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            using (var open = new OpenFileDialog())
+            {
+                if (open.ShowDialog() == DialogResult.OK)
+                {                    
+                    using (var reader = new StreamReader(open.FileName))
+                    {
+                        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                        {
+                            var records = csv.GetRecords<DeploymentRow>().ToArray();
+
+                            foreach(var record in records)
+                            {
+                                var date = DateTime.ParseExact(StripBrackets(record.ClosedDate), "ddd MMM dd yyyy HH:mm:ss 'GMT'K", CultureInfo.InvariantCulture);
+
+                                bool doesExist = false;
+                                foreach(DataRow row in _data.Rows)
+                                {
+                                    if(((DateTime)row["Date"]).Equals(date))
+                                    {
+                                        doesExist = true;
+                                        break;
+                                    }
+                                }
+
+                                if (!doesExist)
+                                {
+
+                                    this._data.Rows.Add(Guid.NewGuid(), date, record.Name);
+                                }
+                            }                            
+                        }
+                    }
+                }
+            }
+        }
+
+
+        public string StripBrackets(string value)
+        {
+            var indexOfFirstBracket = value.IndexOf('(');
+            if (indexOfFirstBracket >= 0)
+            {
+                return value.Substring(0, indexOfFirstBracket - 1);
+            }
+            else
+            {
+                return value;
+            }
         }
     }
 }
