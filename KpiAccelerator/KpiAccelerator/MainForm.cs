@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using KpiAccelerator.Data;
 using KpiAccelerator.Import;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,8 +24,35 @@ namespace KpiAccelerator
         public MainForm()
         {
             InitializeComponent();
+        }
 
-            this.KpiData = new KpiData();
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            try
+            {
+                var path = GetDataFileName();
+                var data = File.ReadAllText(path);
+                var deserialised = JsonConvert.DeserializeObject<KpiData>(data);
+                this.KpiData = deserialised;
+                foreach(var incident in this.KpiData.Incidents) // there's a circular reference in the JSON so this relationship is ignored, restore manually here
+                {
+                    if(incident.Deployment != null)
+                    {
+                        incident.Deployment.Incidents.Add(incident);
+                    }
+                }
+                this.RefreshKPIs();
+            }
+            catch(Exception)
+            {
+                this.KpiData = null;
+            }
+            if(KpiData == null)
+            {
+                this.KpiData = new KpiData();
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,6 +120,20 @@ namespace KpiAccelerator
             this.LabelValueKpiDeployments.Text = $"{deployments} in the last 3 months";
             this.LabelValueKpiSuccessful.Text = $"{successful} % of changes in the last 3 months were successful";
             this.LabelValueKpiRecovery.Text = $"{Math.Round(recovery.TotalHours)} hours to recover from incidents";
+
+            SaveKpiData();
+        }
+
+        private void SaveKpiData()
+        {
+            var path = GetDataFileName();
+            var json = JsonConvert.SerializeObject(this.KpiData);
+            File.WriteAllText(path, json);
+        }
+
+        protected string GetDataFileName()
+        {
+            return $"{AppDomain.CurrentDomain.BaseDirectory}\\KpiData.kpia";
         }
 
         public string StripBrackets(string value)

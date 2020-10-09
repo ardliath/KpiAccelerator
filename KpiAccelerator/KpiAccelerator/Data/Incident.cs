@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace KpiAccelerator.Data
 {
@@ -12,6 +13,8 @@ namespace KpiAccelerator.Data
         public string Name { get; set; }
 
         public Deployment Deployment { get; set; }
+
+        [JsonIgnore]
         public TimeSpan? RecoveryTime
         {
             get

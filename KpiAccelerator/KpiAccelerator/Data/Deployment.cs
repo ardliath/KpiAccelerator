@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,6 +12,7 @@ namespace KpiAccelerator.Data
 
         public string Name { get; set; }
 
+        [JsonIgnore]
         public List<Incident> Incidents { get; set; }
 
         public Deployment()
@@ -23,6 +25,7 @@ namespace KpiAccelerator.Data
             return $"{this.Name} - ({this.DeploymentDate.ToShortDateString()})";
         }
 
+        [JsonIgnore]
         public bool WasSucces
         {
             get
