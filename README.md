@@ -1,6 +1,6 @@
 # KpiAccelerator
  
-##What is it?
+### What is it?
 
 The KpiAccelerator is a .NET application to help you calculate and track your development KPIs using the four measures of team success recommended by [The State of DevOps Report](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf) and the book [Accelerate](https://www.amazon.co.uk/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339).
 
@@ -9,3 +9,7 @@ These are:
  - Change Success Rate
  - Time to Recover
  - Lead Time
+
+### Where Are You Up To?
+
+It's very early days, the KpiAccelerator can take some data sources and requires you to manually enter other values. Leave it with me, check back later and I'll hopefully have added more features. If you're interested in helping out please take a look at our [Issues](https://github.com/ardliath/KpiAccelerator/issues) page for inspiration.
