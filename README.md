@@ -10,6 +10,6 @@ These are:
  - Time to Recover
  - Lead Time
 
-### Where Are You Up To?
+### Where Are We Up To?
 
 It's very early days, the KpiAccelerator can take some data sources and requires you to manually enter other values. Leave it with me, check back later and I'll hopefully have added more features. If you're interested in helping out please take a look at our [Issues Page](https://github.com/ardliath/KpiAccelerator/issues) for inspiration.
