@@ -106,10 +106,10 @@ namespace KpiAccelerator
             var successful = calculator.CalculateSuccessfulChangePercentage();
             var recovery = calculator.CalculateAverageRecoveryTime();
 
-            this.LabelValueKpiLeadTime.Text = $"{Math.Round(leadTime.TotalDays, 0)} days Average Lead Time";
-            this.LabelValueKpiDeployments.Text = $"{deployments} deployments in the last 3 months";
-            this.LabelValueKpiSuccessful.Text = $"{successful} % of changes in the last 3 months were successful";
-            this.LabelValueKpiRecovery.Text = $"{Math.Round(recovery.TotalHours)} hours to recover from incidents";
+            this.LabelValueKpiLeadTime.Text = $"{Math.Round(leadTime.TotalDays, 0)} days";
+            this.LabelValueKpiDeployments.Text = $"{deployments}";
+            this.LabelValueKpiSuccessful.Text = $"{successful} %";
+            this.LabelValueKpiRecovery.Text = $"{Math.Round(recovery.TotalHours)} hours";
 
             KpiPersistance.Save(this.KpiData);
         }
