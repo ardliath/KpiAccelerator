@@ -152,7 +152,7 @@ namespace KpiAccelerator
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"This is the KpiAccelerator version {Assembly.GetExecutingAssembly().GetName().Version.ToString()}",
+            MessageBox.Show($"This is the KpiAccelerator V{Assembly.GetExecutingAssembly().GetName().Version.ToString()}",
                 "KpiAccelerator",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
