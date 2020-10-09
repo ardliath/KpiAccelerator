@@ -32,17 +32,7 @@ namespace KpiAccelerator
 
             try
             {
-                var path = GetDataFileName();
-                var data = File.ReadAllText(path);
-                var deserialised = JsonConvert.DeserializeObject<KpiData>(data);
-                this.KpiData = deserialised;
-                foreach(var incident in this.KpiData.Incidents) // there's a circular reference in the JSON so this relationship is ignored, restore manually here
-                {
-                    if(incident.Deployment != null)
-                    {
-                        incident.Deployment.Incidents.Add(incident);
-                    }
-                }
+                this.KpiData = KpiPersistance.Load();
                 this.RefreshKPIs();
             }
             catch(Exception)
@@ -121,19 +111,7 @@ namespace KpiAccelerator
             this.LabelValueKpiSuccessful.Text = $"{successful} % of changes in the last 3 months were successful";
             this.LabelValueKpiRecovery.Text = $"{Math.Round(recovery.TotalHours)} hours to recover from incidents";
 
-            SaveKpiData();
-        }
-
-        private void SaveKpiData()
-        {
-            var path = GetDataFileName();
-            var json = JsonConvert.SerializeObject(this.KpiData);
-            File.WriteAllText(path, json);
-        }
-
-        protected string GetDataFileName()
-        {
-            return $"{AppDomain.CurrentDomain.BaseDirectory}\\KpiData.kpia";
+            KpiPersistance.Save(this.KpiData);
         }
 
         public string StripBrackets(string value)
