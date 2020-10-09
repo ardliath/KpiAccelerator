@@ -1,7 +1,7 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using System;
 
-namespace KpiAccelerator
+namespace KpiAccelerator.Import
 {
     public class WorkItemRow
     {

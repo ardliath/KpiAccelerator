@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KpiAccelerator.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

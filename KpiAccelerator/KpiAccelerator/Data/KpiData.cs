@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KpiAccelerator
+namespace KpiAccelerator.Data
 {
     public class KpiData
     {

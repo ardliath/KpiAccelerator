@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KpiAccelerator
+namespace KpiAccelerator.Data
 {
     public class Incident
     {

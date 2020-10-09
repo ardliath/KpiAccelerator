@@ -1,4 +1,6 @@
 ﻿using CsvHelper;
+using KpiAccelerator.Data;
+using KpiAccelerator.Import;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,8 +41,7 @@ namespace KpiAccelerator
                     this.KpiData.WorkItems = new List<WorkItem>();
                     using (var reader = new StreamReader(open.FileName))
                     {
-                        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                        {
+                        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))                        {
                             var records = csv.GetRecords<WorkItemRow>().ToArray();
 
                             var newData = records.Select(w => new WorkItem
