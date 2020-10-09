@@ -66,6 +66,7 @@
       <DependentUpon>DeploymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\KpiData.cs" />
+    <Compile Include="KpiCalculator.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
