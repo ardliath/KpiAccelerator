@@ -114,7 +114,7 @@
             // LabelValueKpiLeadTime
             // 
             this.LabelValueKpiLeadTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelValueKpiLeadTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiLeadTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelValueKpiLeadTime.Location = new System.Drawing.Point(3, 16);
             this.LabelValueKpiLeadTime.Name = "LabelValueKpiLeadTime";
             this.LabelValueKpiLeadTime.Size = new System.Drawing.Size(404, 181);
@@ -125,7 +125,7 @@
             // LabelValueKpiDeployments
             // 
             this.LabelValueKpiDeployments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelValueKpiDeployments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiDeployments.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelValueKpiDeployments.Location = new System.Drawing.Point(3, 16);
             this.LabelValueKpiDeployments.Name = "LabelValueKpiDeployments";
             this.LabelValueKpiDeployments.Size = new System.Drawing.Size(404, 181);
@@ -136,7 +136,7 @@
             // LabelValueKpiSuccessful
             // 
             this.LabelValueKpiSuccessful.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelValueKpiSuccessful.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiSuccessful.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelValueKpiSuccessful.Location = new System.Drawing.Point(3, 16);
             this.LabelValueKpiSuccessful.Name = "LabelValueKpiSuccessful";
             this.LabelValueKpiSuccessful.Size = new System.Drawing.Size(404, 181);
@@ -147,7 +147,7 @@
             // LabelValueKpiRecovery
             // 
             this.LabelValueKpiRecovery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelValueKpiRecovery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelValueKpiRecovery.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelValueKpiRecovery.Location = new System.Drawing.Point(3, 16);
             this.LabelValueKpiRecovery.Name = "LabelValueKpiRecovery";
             this.LabelValueKpiRecovery.Size = new System.Drawing.Size(404, 181);

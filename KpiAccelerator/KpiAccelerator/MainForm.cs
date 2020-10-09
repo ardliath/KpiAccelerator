@@ -108,7 +108,7 @@ namespace KpiAccelerator
 
             this.LabelValueKpiLeadTime.Text = $"{Math.Round(leadTime.TotalDays, 0)} days";
             this.LabelValueKpiDeployments.Text = $"{deployments}";
-            this.LabelValueKpiSuccessful.Text = $"{successful} %";
+            this.LabelValueKpiSuccessful.Text = $"{successful}%";
             this.LabelValueKpiRecovery.Text = $"{Math.Round(recovery.TotalHours)} hours";
 
             KpiPersistance.Save(this.KpiData);
