@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -147,6 +148,19 @@ namespace KpiAccelerator
                     this.RefreshKPIs();
                 }
             }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"This is the KpiAccelerator version {Assembly.GetExecutingAssembly().GetName().Version.ToString()}",
+                "KpiAccelerator",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://github.com/ardliath/KpiAccelerator/wiki");
         }
     }
 }
