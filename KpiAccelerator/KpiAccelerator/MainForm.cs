@@ -117,7 +117,7 @@ namespace KpiAccelerator
             var recovery = calculator.CalculateAverageRecoveryTime();
 
             this.LabelValueKpiLeadTime.Text = $"{Math.Round(leadTime.TotalDays, 0)} days Average Lead Time";
-            this.LabelValueKpiDeployments.Text = $"{deployments} in the last 3 months";
+            this.LabelValueKpiDeployments.Text = $"{deployments} deployments in the last 3 months";
             this.LabelValueKpiSuccessful.Text = $"{successful} % of changes in the last 3 months were successful";
             this.LabelValueKpiRecovery.Text = $"{Math.Round(recovery.TotalHours)} hours to recover from incidents";
 
