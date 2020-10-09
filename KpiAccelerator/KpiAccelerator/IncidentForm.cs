@@ -73,7 +73,7 @@ namespace KpiAccelerator
             foreach (DataRow row in _data.Rows)
             {
                 
-                if(row["DeploymentID"] != null)
+                if(row["DeploymentID"] != null && row["DeploymentID"] != DBNull.Value)
                 {
                     deployment = _mainForm.KpiData.Deployments.SingleOrDefault(d => d.ID == (Guid)row["DeploymentID"]);
                 }
@@ -114,6 +114,8 @@ namespace KpiAccelerator
                 deployment?.ID,
                 deployment?.Name
                 );
+            
+            this.textBox1.Text = null;
         }
 
         private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)

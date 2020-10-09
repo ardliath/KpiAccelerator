@@ -69,6 +69,8 @@ namespace KpiAccelerator
             this._data.Rows.Add(Guid.NewGuid(),
                 this.dateTimePicker1.Value,
                 this.textBox1.Text);
+
+            this.textBox1.Text = null;
         }
 
         private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)

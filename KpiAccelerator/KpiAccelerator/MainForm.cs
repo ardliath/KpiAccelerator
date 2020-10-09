@@ -83,7 +83,7 @@ namespace KpiAccelerator
             this.LabelValueKpiLeadTime.Text = $"{Math.Round(this.KpiData.AverageLeadTime.TotalDays, 0)} days";
             this.LabelValueKpiDeployments.Text = $"{this.KpiData.NumberOfDeployments} in the last 3 months";
             this.LabelValueKpiSuccessful.Text = $"{this.KpiData.SuccessfulChangePercentage} % of changes in the last 3 months were successful";
-            this.LabelValueKpiRecovery.Text = $"{this.KpiData.AverageRecoveryTime.TotalHours} hours to recover from incidents";
+            this.LabelValueKpiRecovery.Text = $"{Math.Round(this.KpiData.AverageRecoveryTime.TotalHours)} hours to recover from incidents";
         }
 
         public string StripBrackets(string value)

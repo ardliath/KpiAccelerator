@@ -57,6 +57,8 @@ namespace KpiAccelerator
             get
             {
                 var allChanges = this.Deployments.Where(d => d.DeploymentDate >= DateTime.Now.AddMonths(-3));
+                if (!allChanges.Any()) return 0;
+
                 var successfulChanges = allChanges.Where(c => c.WasSucces);
 
                 return (int)(100 * (double)(successfulChanges.Count() / (double)allChanges.Count()));
@@ -67,6 +69,8 @@ namespace KpiAccelerator
         {
             get
             {
+                if (this.Incidents == null || !this.Incidents.Any(w => w.RecoveryTime.HasValue)) return new TimeSpan();
+
                 var averageTicks = (long)this.Incidents
                         .Where(w => w.RecoveryTime.HasValue)
                         .OrderByDescending(w => w.EndDate)
